@@ -1,4 +1,4 @@
-# AI utils in C++
+# AI utils in C++ (still under development)
 
 ## Aim:
 I created this library to test AI stuff out using C++ (challenging yet rewarding task), basically because people consider C++ to be not so user-friendly when it comes to AI/ML applications. My target is to cross that oundary and make C++ too a useful tool for AI/ML developers.
