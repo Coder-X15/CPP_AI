@@ -11,5 +11,5 @@ I created this library to test AI stuff out using C++ (challenging yet rewarding
 * Simple evaluation performance
 
 ## Intended Users
-C++-savvy pursuers of AI/ML studies. All contributions are welcome from whoever is interested in developing this.
+C++-savvy pursuers of AI/ML studies. All contributions are welcome from whosoever is interested in developing this.
 
