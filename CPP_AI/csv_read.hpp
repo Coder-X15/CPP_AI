@@ -8,15 +8,19 @@
 # include <vector>
 # include <any>
 
+# define MAX_COLS 10 // setting a limit to avoid errors
+# define MAX_CAPACITY 100
 
 namespace csv{
 
-    class Column{
+    struct Column{
+        private:
+            int item_count = 0;
         public:
             std::string datatype;
             std::string column_name;
-            std::string *data;
-            template <typename T> void getEntry(int, T*); 
+            std::string data[MAX_CAPACITY];
+            void add(std::string);
     };
 
     class DataFrame{
@@ -29,11 +33,11 @@ namespace csv{
             helps in the proper parsing of the data in the csv file to the appropriate types.*/
         private:
            
-            std::string *colnames; // the names of the columns in the table
-            std::string *types; // list of the types corresponding to each column
-            std::ifstream dataset_parser; // to parse the dataset
-            std::ifstream properties_parser; // to parse the properties.txt file
-            Column *data; // the table as an array of columns
+            std::string colnames[MAX_COLS]; // the names of the columns in the table
+            std::string types[ MAX_COLS]; // list of the types corresponding to each column
+            std::fstream dataset_parser; // to parse the dataset
+            std::fstream properties_parser; // to parse the properties.txt file
+            Column data[MAX_COLS]; // the table as an array of columns
             
         public:
             
