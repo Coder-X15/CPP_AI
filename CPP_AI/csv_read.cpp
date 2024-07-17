@@ -1,4 +1,5 @@
-# include "C:/Users/samru/CPP_AI/CPP_AI/csv_read.hpp"
+// # include "<path to lib folder>/CPP_AI/csv_read.hpp"
+# include "CPP_AI/csv_read.hpp"
 # include <iostream>
 # include <fstream>
 # include <vector>
@@ -127,4 +128,14 @@ csv::Column csv::DataFrame::getColumn(std::string column_name){
     if(i == column_count){throw std::runtime_error("Column not found:"+column_name);}
 
     return data[i];
+}
+
+void csv::DataFrame::summary(){
+    std::cout << "Column names and types (for ease of casting):\n";
+    for(int i = 0; i < this->column_count; i++){
+        std::cout << "*****************" << std::endl;
+        std::cout << "Name : " << data[i].column_name << std::endl;
+        std::cout << "Type : " << data[i].datatype << std::endl;
+        std::cout << "*****************" << std::endl;
+    }
 }

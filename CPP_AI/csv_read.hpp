@@ -9,7 +9,7 @@
 # include <any>
 
 # define MAX_COLS 10 // setting a limit to avoid errors
-# define MAX_CAPACITY 100
+# define MAX_CAPACITY 1000 // the maximum number of elements a column can accomodate
 
 namespace csv{
 
@@ -37,7 +37,7 @@ namespace csv{
             std::string types[ MAX_COLS]; // list of the types corresponding to each column
             std::fstream dataset_parser; // to parse the dataset
             std::fstream properties_parser; // to parse the properties.txt file
-            Column data[MAX_COLS]; // the table as an array of columns
+            Column data[MAX_COLS]; // the table as an array of column
             
         public:
             
@@ -46,6 +46,7 @@ namespace csv{
             int column_count; // no. of columns in the dataframe
             Column getColumn(std::string); // returns the column indicated by the string
             std::vector<std::any> getRow(int); // returns the row indicated by the index
+            void summary(); // returns a summary about the columns in the dataframe
 
     };
 
