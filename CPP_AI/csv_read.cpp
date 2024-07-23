@@ -1,5 +1,5 @@
 // # include "<path to lib folder>/CPP_AI/csv_read.hpp"
-# include "CPP_AI/csv_read.hpp"
+# include "csv_read.hpp"
 # include <iostream>
 # include <fstream>
 # include <vector>
@@ -10,19 +10,6 @@ void csv::Column::add(std::string value){
     data[item_count++] = value;
 }
 
-void csv::split_string(std::string list[], std::string line, char delimiter, int count){
-    int pos_pointer = 0;
-    int length = line.length();
-    for(int i = 0; i < count; i++){
-        std::string temp;
-        while(line.at(pos_pointer) != delimiter && pos_pointer < length-1){
-            temp = temp + line.at(pos_pointer);
-            pos_pointer++;
-        }
-        list[i] = temp;
-        pos_pointer++;
-    }
-}
 csv::DataFrame::DataFrame(std::string fpath, std::string fname){
     // fpath is the path to the dataset and its properties.txt file
     std::string dataset = fpath + fname;
@@ -127,7 +114,7 @@ csv::Column csv::DataFrame::getColumn(std::string column_name){
 
     if(i == column_count){throw std::runtime_error("Column not found:"+column_name);}
 
-    return data[i];
+    return(data[--i]);
 }
 
 void csv::DataFrame::summary(){
@@ -138,4 +125,28 @@ void csv::DataFrame::summary(){
         std::cout << "Type : " << data[i].datatype << std::endl;
         std::cout << "*****************" << std::endl;
     }
+}
+
+void csv::DataFrame::setColumn(std::string col_name, Column new_column){
+    bool done = false;
+    for(int i = 0; i < this->column_count; i++){
+        if(data[i].column_name.compare(col_name) == 0){
+            data[i].column_name = new_column.column_name;
+            data[i].datatype = new_column.datatype;
+            for(int j = 0; j < data[i].item_count; j++){
+                data[i].data[j] = new_column.data[j];
+            }
+            done = true;
+            break;
+        }
+    }
+    if(!done){
+        ++column_count;
+        data[column_count].column_name = new_column.column_name;
+        data[column_count].datatype = new_column.datatype;
+        for(int j = 0; j < data[column_count].item_count; j++){
+            data[column_count].data[j] = new_column.data[j];
+        }
+    }
+
 }

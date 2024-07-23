@@ -5,7 +5,7 @@ I created this library to test AI stuff out using C++ (challenging yet rewarding
 
 ## Functionalities Intended (status marked on the right with emojis):
 * Dataframe reading / reading data from CSV files ✔️
-* Data preprocessing (planned: normalisation, outlier removal, label encoding, train-test splitting) ❌
+* Data preprocessing (planned: normalisation, outlier removal, label encoding, train-test splitting) ✔️ [not exactly, need to test the normalization functions; example will be added soon]
 * Simple AI / the generic stuff (i.e., those that don't require learning)❌
 * Simple ML algorithms (planned: Simple Linear/Logistic Regression, Perceptron, kNN (k-Nearest Neighbours), Bayesian classifier)❌
 * Simple evaluation of performance❌

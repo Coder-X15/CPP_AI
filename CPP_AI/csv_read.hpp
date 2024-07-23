@@ -1,7 +1,7 @@
 # pragma once
 
-# ifndef CSV_READ_H
-# define CSV_READ_H
+# ifndef CSV_READ_HPP
+# define CSV_READ_HPP
 
 # include <iostream>
 # include <fstream>
@@ -14,9 +14,8 @@
 namespace csv{
 
     struct Column{
-        private:
-            int item_count = 0;
         public:
+            int item_count = 0;
             std::string datatype;
             std::string column_name;
             std::string data[MAX_CAPACITY];
@@ -45,13 +44,11 @@ namespace csv{
             int row_count; // no. of rows in the dataframe
             int column_count; // no. of columns in the dataframe
             Column getColumn(std::string); // returns the column indicated by the string
+            void setColumn(std::string, Column); // to replace a column with a new column, if the label isn't present the column is added as a new one
             std::vector<std::any> getRow(int); // returns the row indicated by the index
             void summary(); // returns a summary about the columns in the dataframe
 
     };
-
-    // some utility functions for making life easier
-    void split_string(std::string[], std::string, char, int);
 
 };
 
