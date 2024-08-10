@@ -3,12 +3,12 @@
 # include <vector>
 # include <any>
 // # include <<path to your lib folder>/CPP_AI/csv_read.cpp>
-# include <CPP_AI/csv_read.cpp>
+# include <CPP_AI/csv_read.hpp>
 
 // while using any, do use any_cast<type>(value) to cast values to their appropriate type
 using namespace std;
 int main(){
-    csv::DataFrame df("C:\\Users\\samru\\CPP_AI\\examples\\dataset_loadin_test\\","data.csv");
+    csv::DataFrame df("C:\\Users\\samru\\CPP_AI\\examples\\dataset_loadin_test\\","sample_data.csv");
     cout << "Dataset loaded successfully; use df.summary() to get a quick view about the columns." << endl;
     df.summary();
     vector<any> row0 = df.getRow(0);
